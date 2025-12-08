@@ -1,0 +1,87 @@
+{ config, lib, pkgs, ... }:
+
+{
+  imports = [ ./hardware-configuration.nix ];
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nixpkgs.config.allowUnfree = true;
+
+  networking.hostName = "nixos";
+  networking.networkmanager.enable = true;
+  time.timeZone = "America/New_York";
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  services.displayManager.sddm.enable = true;
+  services.desktopManager.plasma6.enable = true;
+  services.xserver.xkb.layout = "us";
+  services.flatpak.enable = true;
+
+  services.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+
+  services.hardware.openrgb.enable = true;
+  services.printing.enable = true;
+
+
+  hardware.graphics.enable = true;
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia = {
+    modesetting.enable = true;
+    powerManagement.enable = true;
+    open = true;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
+
+  hardware.bluetooth.enable = true;
+
+  users.users.imogen = {
+    isNormalUser = true;
+    description = "imogen";
+    extraGroups = [ "wheel" "networkmanager" "audio" "video" ];
+    packages = with pkgs; [ kdePackages.kate ];
+  };
+
+  programs.gamemode.enable = true;
+  programs.firefox.enable = true;
+  programs.steam.enable = true;
+
+
+  # Install Noctalia shell (no services.* option, just a package)
+  environment.systemPackages = with pkgs; [
+    git
+    dxvk
+    vesktop
+    protonplus
+    wine
+    winetricks
+    telegram-desktop
+    mangohud
+    fastfetch
+    openrgb-with-all-plugins
+    goverlay
+    home-manager
+
+
+
+    # … add other packages you want
+    (pkgs.xivlauncher-rb.override {
+      useGameMode = true;
+      useSteamRun = true;
+      nvngxPath = "${config.hardware.nvidia.package}/lib/nvidia/wine";
+    })
+  ];
+
+  fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
+
+  system.stateVersion = "25.05";
+}
