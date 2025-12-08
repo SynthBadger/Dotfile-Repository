@@ -18,7 +18,7 @@
   services.desktopManager.plasma6.enable = true;
   services.xserver.xkb.layout = "us";
   services.flatpak.enable = true;
-
+  services.hardware.openrgb.enable = true;
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -28,8 +28,9 @@
     pulse.enable = true;
   };
 
-  services.hardware.openrgb.enable = true;
-  services.printing.enable = true;
+
+
+    services.printing.enable = true;
 
 
   hardware.graphics.enable = true;
