@@ -57,6 +57,7 @@
   programs.steam.enable = true;
 
 
+
   # Install Noctalia shell (no services.* option, just a package)
   environment.systemPackages = with pkgs; [
     git
@@ -71,6 +72,7 @@
     openrgb-with-all-plugins
     goverlay
     home-manager
+    zsh
 
 
 
