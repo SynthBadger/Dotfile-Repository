@@ -48,6 +48,7 @@
   users.users.imogen = {
     isNormalUser = true;
     description = "imogen";
+    shell = "/run/current-system/sw/bin/zsh";  # <-- use system path, not pkgs.zsh
     extraGroups = [ "wheel" "networkmanager" "audio" "video" ];
     packages = with pkgs; [ kdePackages.kate ];
   };
@@ -82,6 +83,10 @@
       useSteamRun = true;
       nvngxPath = "${config.hardware.nvidia.package}/lib/nvidia/wine";
     })
+  ];
+
+  environment.shells = with pkgs; [
+    zsh
   ];
 
   fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];

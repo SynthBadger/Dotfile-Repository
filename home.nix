@@ -58,28 +58,21 @@
     enable = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
-
+    initExtra = ''
+      PROMPT='%/ %#'
+    '';
     shellAliases = {
       ll = "ls -l";
       update = "sudo nixos-rebuild switch";
       home = "cd ~/.dotfiles";
       garbage = "nix-collect-garbage -d;";
-      hmrefresh = "home-manager switch";
-      throwoutdatrash = "nix-channel --update; nix-env -u always; nix-collect-garbage -d; rm /nix/var/nix/gcroots/auto*;";
+      hmrefresh = "home-manager switch --flake .";
+      takeoutdatrash = "nix-channel --update; nix-env -u always; nix-collect-garbage -d; rm /nix/var/nix/gcroots/auto*;";
       upgrade = "sudo nixos-rebuild switch --upgrade";
 
 
     };
-
     history.size = 10000;
   };
-
-  programs.bash = {
-  enable = true;
-  shellAliases = {
-    ll = "ls -l";
-    update = "sudo nixos-rebuild switch";
-  };
-};
-
 }
+
