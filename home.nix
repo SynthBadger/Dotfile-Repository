@@ -15,10 +15,6 @@
     pkgs.vim
     pkgs.openrgb
     pkgs.neovim
-    pkgs.swaybg
-    pkgs.xwayland-satellite
-    pkgs.polkit_gnome
-    pkgs.swayidle
     # add more packages here
   ];
 
@@ -74,24 +70,4 @@
     history.size = 10000;
   };
 
-  #---------------------------------
-  # Niri Setup
-  #---------------------------------
-  xdg.configFile."niri/config.kdl" = {
-    source = ./niri/default-config.kdl;
-    force = true;  # overwrite any existing file
-  };
-
-  # Supporting programs (needed for default keybindings)
-  programs.alacritty.enable = true;   # terminal (Super+T)
-  programs.fuzzel.enable = true;      # app launcher (Super+D)
-  programs.swaylock.enable = true;    # screen locker (Super+Alt+L)
-  programs.waybar.enable = true;      # status bar
-
-  # Services that complement Niri
-  services.mako.enable = true;        # notifications
-  services.polkit-gnome.enable = true;# polkit agent
-
-  # IMPORTANT: disable HM's swayidle service to avoid schema/type errors.
-  services.swayidle.enable = false;
 }
