@@ -56,7 +56,7 @@
   programs.gamemode.enable = true;
   programs.firefox.enable = true;
   programs.steam.enable = true;
-  programs.niri.enable = true;
+  programs.niri.enable = false;
 
 
   # Install Noctalia shell (no services.* option, just a package)

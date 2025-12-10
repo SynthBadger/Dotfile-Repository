@@ -14,7 +14,6 @@
   home.packages = [
     pkgs.vim
     pkgs.openrgb
-    pkgs.neovim
     pkgs.vlc
     
 
@@ -50,16 +49,6 @@
   # Home Manager itself
   # -------------------------------
   programs.home-manager.enable = true;
-
-
-  #Neovim Situation
-
-  programs.neovim = {
-  enable = true;
-  extraConfig = ''
-    set number relativenumber
-  '';
-};
 
 
 
