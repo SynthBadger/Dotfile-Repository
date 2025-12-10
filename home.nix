@@ -63,7 +63,7 @@
     enable = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
-    initExtra = ''
+    initContent = ''
       PROMPT='%/ %#'
     '';
     shellAliases = {
@@ -85,8 +85,10 @@
  #---------------------------------
    
   # Provide Niri's config file via Home Manager
-  xdg.configFile."niri/config.kdl".source = ./niri/default-config.kdl;
-
+  xdg.configFile."niri/config.kdl" = {
+    source = ./niri/default-config.kdl;
+    force = true;
+  };
 
 
   # Supporting programs (needed for default keybindings)
