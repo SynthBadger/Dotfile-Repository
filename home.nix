@@ -15,7 +15,12 @@
     pkgs.vim
     pkgs.openrgb
     pkgs.neovim
-    # add more packages here
+    pkgs.swaybg
+    pkgs.xwayland-satellite 
+    pkgs.polkit_gnome
+    pkgs.swayidle
+
+   # add more packages here
   ];
 
   # -------------------------------
@@ -70,9 +75,36 @@
       takeoutdatrash = "nix-channel --update; nix-env -u always; nix-collect-garbage -d; rm /nix/var/nix/gcroots/auto*;";
       upgrade = "sudo nixos-rebuild switch --upgrade";
 
-
     };
     history.size = 10000;
   };
+
+
+ #---------------------------------
+ # Niri Setup Maybe?
+ #---------------------------------
+   
+  # Provide Niri's config file via Home Manager
+  xdg.configFile."niri/config.kdl".source = ./niri/default-config.kdl;
+
+
+
+  # Supporting programs (needed for default keybindings)
+  programs.alacritty.enable = true;   # terminal (Super+T)
+  programs.fuzzel.enable = true;      # app launcher (Super+D)
+  programs.swaylock.enable = true;    # screen locker (Super+Alt+L)
+  programs.waybar.enable = true;      # status bar
+
+  # Services that complement Niri
+  services.mako.enable = true;        # notifications
+  services.swayidle.enable = true;    # idle management
+  services.polkit-gnome.enable = true;# polkit agent
+
+  
+ 
 }
+
+
+
+
 

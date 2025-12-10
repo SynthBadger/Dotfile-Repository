@@ -56,7 +56,7 @@
   programs.gamemode.enable = true;
   programs.firefox.enable = true;
   programs.steam.enable = true;
-
+  programs.niri.enable = true;
 
 
   # Install Noctalia shell (no services.* option, just a package)
@@ -74,6 +74,7 @@
     goverlay
     home-manager
     zsh
+    niri
 
 
 
