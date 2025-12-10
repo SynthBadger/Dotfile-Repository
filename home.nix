@@ -16,11 +16,10 @@
     pkgs.openrgb
     pkgs.neovim
     pkgs.swaybg
-    pkgs.xwayland-satellite 
+    pkgs.xwayland-satellite
     pkgs.polkit_gnome
     pkgs.swayidle
-
-   # add more packages here
+    # add more packages here
   ];
 
   # -------------------------------
@@ -39,9 +38,6 @@
       SUBSYSTEM=="usb", ATTR{idVendor}=="1b1c", MODE="0666"
       SUBSYSTEM=="usb", ATTR{idVendor}=="1209", MODE="0666"
     '';
-
-    # Example dotfile management
-    # ".screenrc".source = ./dotfiles/screenrc;
   };
 
   # -------------------------------
@@ -74,22 +70,17 @@
       hmrefresh = "home-manager switch --flake .";
       takeoutdatrash = "nix-channel --update; nix-env -u always; nix-collect-garbage -d; rm /nix/var/nix/gcroots/auto*;";
       upgrade = "sudo nixos-rebuild switch --upgrade";
-
     };
     history.size = 10000;
   };
 
-
- #---------------------------------
- # Niri Setup Maybe?
- #---------------------------------
-   
-  # Provide Niri's config file via Home Manager
+  #---------------------------------
+  # Niri Setup
+  #---------------------------------
   xdg.configFile."niri/config.kdl" = {
     source = ./niri/default-config.kdl;
-    force = true;
+    force = true;  # overwrite any existing file
   };
-
 
   # Supporting programs (needed for default keybindings)
   programs.alacritty.enable = true;   # terminal (Super+T)
@@ -99,14 +90,8 @@
 
   # Services that complement Niri
   services.mako.enable = true;        # notifications
-  services.swayidle.enable = true;    # idle management
   services.polkit-gnome.enable = true;# polkit agent
 
-  
- 
+  # IMPORTANT: disable HM's swayidle service to avoid schema/type errors.
+  services.swayidle.enable = false;
 }
-
-
-
-
-
