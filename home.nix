@@ -16,6 +16,7 @@
     pkgs.openrgb
     pkgs.neovim
     pkgs.vlc
+    
     # add more packages here
   ];
 
