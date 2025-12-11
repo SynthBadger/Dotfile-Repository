@@ -32,7 +32,8 @@
 
     services.printing.enable = true;
 
-
+  hardware.keyboard.qmk.enable = true;
+  services.udev.packages = with pkgs; [via];
   hardware.graphics.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
@@ -75,7 +76,9 @@
     home-manager
     zsh
     niri
-
+    neovim
+    via
+    qmk
 
 
     # … add other packages you want

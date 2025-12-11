@@ -15,6 +15,7 @@
     pkgs.vim
     pkgs.openrgb
     pkgs.vlc
+    pkgs.neovim
     
 
     # add more packages here
@@ -65,7 +66,7 @@
     shellAliases = {
       ll = "ls -l";
       update = "sudo nixos-rebuild switch";
-      home = "cd ~/.dotfiles";
+      godot = "cd ~/.dotfiles";
       garbage = "nix-collect-garbage -d;";
       hmrefresh = "home-manager switch --flake .";
       takeoutdatrash = "nix-channel --update; nix-env -u always; nix-collect-garbage -d; rm /nix/var/nix/gcroots/auto*;";
