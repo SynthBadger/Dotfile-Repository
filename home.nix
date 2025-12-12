@@ -11,12 +11,14 @@
   # -------------------------------
   # Packages
   # -------------------------------
-  home.packages = [
-    pkgs.vim
-    pkgs.openrgb
-    pkgs.vlc
-    pkgs.neovim
-    pkgs.novelwriter
+  home.packages = with pkgs;  [
+   vim
+   openrgb
+   vlc
+   neovim
+   novelwriter
+   hunspell
+   hunspellDicts.en_US
 
     # add more packages here
   ];
