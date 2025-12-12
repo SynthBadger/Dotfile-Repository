@@ -16,7 +16,7 @@
     pkgs.openrgb
     pkgs.vlc
     pkgs.neovim
-    
+    pkgs.novelwriter
 
     # add more packages here
   ];
@@ -65,7 +65,7 @@
     '';
     shellAliases = {
       ll = "ls -l";
-      update = "sudo nixos-rebuild switch";
+      update = "sudo nixos-rebuild switch --flake .";
       godot = "cd ~/.dotfiles";
       garbage = "nix-collect-garbage -d;";
       hmrefresh = "home-manager switch --flake .";
