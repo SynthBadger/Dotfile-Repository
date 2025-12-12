@@ -88,9 +88,11 @@
     qmk
     jxrlib
     imagemagick
+    #printer stuff
     brlaser
     brgenml1lpr
     brgenml1cupswrapper
+    #SSH
     putty
 
     # … add other packages you want
