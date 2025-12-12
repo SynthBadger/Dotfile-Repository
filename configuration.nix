@@ -80,7 +80,7 @@
     neovim
     via
     qmk
-
+    jxrlib
 
     # … add other packages you want
     (pkgs.xivlauncher-rb.override {
