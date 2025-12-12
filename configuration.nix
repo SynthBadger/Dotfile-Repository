@@ -37,8 +37,21 @@
 
 
 
-  services.printing.enable = true;
+  #services.printing.enable = true;
 
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+
+  services.printing = {
+    enable = true;
+    drivers = with pkgs; [
+    cups-filters
+    cups-browsed
+  ];
+};
 
   hardware.keyboard.qmk.enable = true;
   services.udev.packages = with pkgs; [via];
