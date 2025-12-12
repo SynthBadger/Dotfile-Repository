@@ -81,7 +81,7 @@
     via
     qmk
     jxrlib
-
+    imagemagick
     # … add other packages you want
     (pkgs.xivlauncher-rb.override {
       useGameMode = true;
