@@ -19,6 +19,7 @@
    novelwriter
    hunspell
    hunspellDicts.en_US
+   krita
 
     # add more packages here
   ];
