@@ -7,7 +7,6 @@
 
   imports = [ 
 	./hardware-configuration.nix 
-        ./brotherconfig.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
