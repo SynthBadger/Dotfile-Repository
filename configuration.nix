@@ -4,6 +4,7 @@
 
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = true;
+  nix.settings.auto-optimise-store = true;
 
   imports = [ 
 	./hardware-configuration.nix 
@@ -58,7 +59,7 @@
     isNormalUser = true;
     description = "imogen";
     shell = "/run/current-system/sw/bin/zsh";  # <-- use system path, not pkgs.zsh
-    extraGroups = [ "wheel" "networkmanager" "audio" "video" ];
+    extraGroups = [ "wheel" "networkmanager" "audio" "video" "lp"];
     packages = with pkgs; [ kdePackages.kate ];
   };
 
@@ -92,10 +93,9 @@
     imagemagick
     #printer stuff
     brlaser
-    brgenml1lpr
-    brgenml1cupswrapper
     #SSH
     putty
+    cups
 
     # … add other packages you want
     (pkgs.xivlauncher-rb.override {
