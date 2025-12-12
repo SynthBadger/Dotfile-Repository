@@ -34,7 +34,8 @@
 
 
 
-    services.printing.enable = true;
+  services.printing.enable = true;
+
 
   hardware.keyboard.qmk.enable = true;
   services.udev.packages = with pkgs; [via];
@@ -73,6 +74,7 @@
     protonplus
     wine
     winetricks
+    dxvk
     telegram-desktop
     mangohud
     fastfetch
@@ -86,6 +88,11 @@
     qmk
     jxrlib
     imagemagick
+    brlaser
+    brgenml1lpr
+    brgenml1cupswrapper
+    putty
+
     # … add other packages you want
     (pkgs.xivlauncher-rb.override {
       useGameMode = true;
