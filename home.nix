@@ -20,6 +20,7 @@
    hunspell
    hunspellDicts.en_US
    krita
+   baobab
 
     # add more packages here
   ];
@@ -72,7 +73,7 @@
       godot = "cd ~/.dotfiles";
       garbage = "nix-collect-garbage -d;";
       hmrefresh = "home-manager switch --flake .";
-      takeoutdatrash = "nix-channel --update; nix-env -u always; nix-collect-garbage -d; rm /nix/var/nix/gcroots/auto*;";
+      takeoutdatrash = "sudo nix-channel --update; nix-env -u always; nix-collect-garbage -d; rm /nix/var/nix/gcroots/auto*;";
       upgrade = "sudo nixos-rebuild switch --upgrade";
     };
     history.size = 10000;
