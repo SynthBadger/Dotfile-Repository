@@ -69,7 +69,7 @@
     '';
     shellAliases = {
       ll = "ls -l";
-      update = "sudo nixos-rebuild switch --flake .";
+      update = "sudo nixos-rebuild switch --flake ~/.dotfiles";
       godot = "cd ~/.dotfiles";
       garbage = "nix-collect-garbage -d;";
       hmrefresh = "home-manager switch --flake .";
