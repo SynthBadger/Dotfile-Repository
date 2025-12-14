@@ -114,6 +114,9 @@
     #SSH
     putty
     cups
+    joplin
+    vlc
+
 
     #KDE Setup
 
